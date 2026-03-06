@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Einstellungen</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+  <div class="nav-header">
+    <h2>Görgei OS</h2>
+    <div class="tray">
+      <span id="tray-net">NET: ONLINE</span>
+      <span id="tray-cpu">CPU: 12%</span>
+      <span id="tray-time"></span>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <span class="nav-icon">🖥</span><span>Dashboard</span>
+  </a>
+  <a href="network.html">
+    <span class="nav-icon">🌐</span><span>Netzwerk</span>
+  </a>
+  <a href="scanner.html">
+    <span class="nav-icon">🔍</span><span>Scanner</span>
+  </a>
+  <a href="logs.html">
+    <span class="nav-icon">📄</span><span>Logs</span>
+  </a>
+  <a href="settings.html" class="active">
+    <span class="nav-icon">⚙</span><span>Einstellungen</span>
+  </a>
+</nav>
+
+<main>
+  <div class="terminal-title">System Einstellungen</div>
+  <div class="terminal-panel">
+    <pre>
+[ INFO ] Theme: Görgei OS Professional
+[ INFO ] Terminalfarbe: Dark-White
+[ INFO ] Navigation: Kali-Style
+[ INFO ] Fensterstil: Modern
+    </pre>
+  </div>
+
+  <a class="btn" onclick="shutdown()">Shutdown</a>
+</main>
+
+<div id="shutdown-overlay">
+  <div class="shutdown-box">
+    <pre>
+Görgei OS is shutting down...
+
+[ OK   ] Stopping services
+[ OK   ] Unmounting volumes
+[ OK   ] Power off
+    </pre>
+  </div>
+</div>
+
+<div id="cmd-palette" class="command-palette">
+  <input id="cmd-input" placeholder="Command...">
+  <div class="command-list">
+    <div data-action="open-dashboard">Open Dashboard</div>
+    <div data-action="open-network">Open Network</div>
+    <div data-action="open-scanner">Open Scanner</div>
+    <div data-action="open-logs">Open Logs</div>
+  </div>
+</div>
+
+<script src="matrix.js"></script>
+<script src="ui.js"></script>
+<script>
+function shutdown() {
+  const overlay = document.getElementById("shutdown-overlay");
+  overlay.style.display = "flex";
+  setTimeout(() => {
+    window.location.href = "boot.html";
+  }, 3000);
+}
+</script>
+</body>
+</html>

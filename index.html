@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Dashboard</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+<!-- MATRIX BACKGROUND -->
+<canvas id="matrix"></canvas>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-header">
+    <h2>Görgei OS</h2>
+    <div class="tray">
+      <span id="tray-net">NET: ONLINE</span>
+      <span id="tray-cpu">CPU: 12%</span>
+      <span id="tray-time"></span>
+    </div>
+  </div>
+
+  <a href="index.html" class="active">
+    <span class="nav-icon">🖥</span><span>Dashboard</span>
+  </a>
+  <a href="network.html">
+    <span class="nav-icon">🌐</span><span>Netzwerk</span>
+  </a>
+  <a href="scanner.html">
+    <span class="nav-icon">🔍</span><span>Scanner</span>
+  </a>
+  <a href="logs.html">
+    <span class="nav-icon">📄</span><span>Logs</span>
+  </a>
+  <a href="settings.html">
+    <span class="nav-icon">⚙</span><span>Einstellungen</span>
+  </a>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- TERMINAL -->
+  <div class="terminal-title">System Terminal</div>
+  <div class="terminal-panel">
+    <pre id="terminal-output">
+Görgei OS Interactive Shell
+Type 'help' for available commands.
+
+root@gorgei-os:~$ </pre>
+
+    <input id="terminal-input" class="terminal-input" autocomplete="off">
+  </div>
+
+  <!-- SYSTEM WIDGETS -->
+  <div class="terminal-title">System Overview</div>
+  <div class="terminal-panel widgets">
+    <div class="widget">
+      <div class="widget-label">CPU Load</div>
+      <div class="widget-bar"><div id="cpu-bar"></div></div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-label">Network Activity</div>
+      <div class="widget-bar"><div id="net-bar"></div></div>
+    </div>
+  </div>
+
+<div class="terminal-title">Geo‑IP Information</div>
+<div class="terminal-panel">
+  <pre id="geo-ip">Fetching Geo‑IP data...</pre>
+</div>
+
+</main>
+
+<!-- COMMAND PALETTE -->
+<div id="cmd-palette" class="command-palette">
+  <input id="cmd-input" placeholder="Command... (z.B. 'open network')">
+  <div class="command-list">
+    <div data-action="open-dashboard">Open Dashboard</div>
+    <div data-action="open-network">Open Network</div>
+    <div data-action="open-scanner">Open Scanner</div>
+    <div data-action="open-logs">Open Logs</div>
+  </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="matrix.js"></script>
+<script src="ui.js"></script>
+
+<script>
+/* ============================================================
+   TERMINAL ENGINE – REALISTIC FAKE LINUX COMMANDS
+   ============================================================ */
+
+const termOut = document.getElementById("terminal-output");
+const termIn = document.getElementById("terminal-input");
+
+function printPrompt() {
+  termOut.textContent += "\nroot@gorgei-os:~$ ";
+}
+
+function print(lines) {
+  if (Array.isArray(lines)) {
+    lines.forEach(l => termOut.textContent += l + "\n");
+  } else {
+    termOut.textContent += lines + "\n";
+  }
+  printPrompt();
+}
+
+const commands = {
+  help: [
+    "Available commands:",
+    "  help               Show this help",
+    "  clear              Clear terminal",
+    "  whoami             Show current user",
+    "  hostname           Show system hostname",
+    "  ls                 List directory",
+    "  pwd                Show current directory",
+    "  ip a               Show network interfaces",
+    "  neofetch           Show system info",
+    "  ps                 Show running processes",
+    "  top                Show live system stats",
+    "  dmesg              Kernel messages",
+    "  journalctl -xe     System logs",
+    "  nmap 192.168.0.0/24  Scan local network",
+    "  cat /etc/passwd    Show passwd file",
+    "  uname -a           Kernel info",
+    "  reboot now         Reboot system",
+    "  reboot             Reboot system",
+	"  bios				  BIOS"
+  ],
+
+  whoami: "root",
+
+  hostname: "gorgei-os",
+
+  ls: [
+    "boot/",
+    "etc/",
+    "home/",
+    "root/",
+    "usr/",
+    "var/",
+    "system.log",
+    "config.cfg"
+  ],
+
+  pwd: "/root",
+
+  "ip a": [
+    "1: lo: <LOOPBACK> mtu 65536",
+    "    inet 127.0.0.1/8",
+    "",
+    "2: eth0: <UP> mtu 1500",
+    "    inet 192.168.0.42/24",
+    "    gateway 192.168.0.1"
+  ],
+
+  neofetch: [
+    "            Görgei OS",
+    "        -----------------",
+    "        OS: Görgei OS Professional",
+    "        Host: gorgei-secure-machine",
+    "        Kernel: 6.9.12-gorgei",
+    "        Uptime: 3 hours",
+    "        Packages: 742",
+    "        Shell: bash 5.2",
+    "        Resolution: 1920x1080",
+    "        CPU: Intel i7-9700K",
+    "        RAM: 8GB"
+  ],
+
+  ps: [
+    "PID   CMD",
+    "1     init",
+    "212   sshd",
+    "301   networkd",
+    "442   ids-engine",
+    "550   gorgei-ui",
+    "612   terminal"
+  ],
+
+  top: [
+    "top - Görgei OS Monitor",
+    "",
+    "CPU: 12%   MEM: 1.3G / 8G",
+    "",
+    "PID   NAME          CPU   MEM",
+    "212   sshd          0.3   12M",
+    "301   networkd      1.2   30M",
+    "442   ids-engine    3.1   80M",
+    "550   gorgei-ui     2.4   150M",
+    "612   terminal      0.1   10M"
+  ],
+
+  dmesg: [
+    "[    0.0001 ] Booting Görgei Kernel...",
+    "[    0.0200 ] CPU initialized",
+    "[    0.0500 ] Memory OK",
+    "[    0.1200 ] Network interface up",
+    "[    0.3000 ] IDS engine loaded"
+  ],
+
+  "journalctl -xe": [
+    "Mar 06 12:01:22 gorgei-os sshd[212]: Accepted password for root",
+    "Mar 06 12:02:10 gorgei-os ids[442]: No threats detected",
+    "Mar 06 12:05:44 gorgei-os firewall[301]: Rule update applied"
+  ],
+
+  "nmap 192.168.0.0/24": [
+    "Starting Görgei Nmap Scanner...",
+    "",
+    "192.168.0.1   open   http",
+    "192.168.0.10  open   ssh",
+    "192.168.0.42  open   https",
+    "",
+    "Scan complete."
+  ],
+
+  "cat /etc/passwd": [
+    "root:x:0:0:root:/root:/bin/bash",
+    "daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin",
+    "network:x:2:2:network:/usr/sbin:/usr/sbin/nologin",
+    "ids:x:3:3:ids-engine:/usr/sbin:/usr/sbin/nologin"
+  ],
+
+  "uname -a": "GörgeiOS Kernel 6.9.12-gorgei #1 SMP x86_64 GNU/Linux"
+};
+
+termIn.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    const cmd = termIn.value.trim();
+    termOut.textContent += cmd + "\n";
+    termIn.value = "";
+
+    /* CLEAR */
+    if (cmd === "clear") {
+      termOut.textContent =
+        "Görgei OS Interactive Shell\nType 'help' for available commands.\n\nroot@gorgei-os:~$ ";
+      return;
+    }
+
+    /* REBOOT */
+    if (cmd === "reboot" || cmd === "reboot now") {
+      termOut.textContent += "[ INFO ] System will reboot now...\n";
+      setTimeout(() => {
+        window.location.href = "reboot.html";
+      }, 800);
+      return;
+    }
+
+    /* BIOS */
+    if (cmd === "bios") {
+      termOut.textContent += "[ INFO ] Entering BIOS Setup Utility...\n";
+      setTimeout(() => {
+        window.location.href = "bios.html";
+      }, 800);
+      return;
+    }
+
+    /* NORMAL COMMANDS */
+    if (commands[cmd]) {
+      print(commands[cmd]);
+    } else if (cmd !== "") {
+      print("Command not found: " + cmd);
+    } else {
+      printPrompt();
+    }
+  }
+});
+
+/* ============================================================
+   WIDGET ANIMATION
+   ============================================================ */
+
+function animateWidgets() {
+  const cpu = document.getElementById("cpu-bar");
+  const net = document.getElementById("net-bar");
+  if (!cpu || !net) return;
+
+  cpu.style.width = (10 + Math.random() * 60) + "%";
+  net.style.width = (5 + Math.random() * 80) + "%";
+}
+setInterval(animateWidgets, 1200);
+animateWidgets();
+</script>
+
+
+<script>
+async function fetchGeoIP() {
+  const box = document.getElementById("geo-ip");
+
+  try {
+    box.textContent = "[ INFO ] Requesting Geo‑IP data...";
+
+    const res = await fetch("/geoip");
+    const data = await res.json();
+
+    box.textContent =
+      "[ OK   ] Geo‑IP data retrieved\n\n" +
+      "IP Address: " + data.ip + "\n" +
+      "Country:    " + data.country + " (" + data.country_code + ")\n" +
+      "Region:     " + data.region + "\n" +
+      "City:       " + data.city + "\n" +
+      "Latitude:   " + data.latitude + "\n" +
+      "Longitude:  " + data.longitude + "\n" +
+      "Timezone:   " + data.timezone.id + "\n" +
+      "ASN:        " + data.connection.asn + "\n" +
+      "ISP:        " + data.connection.isp + "\n";
+  } catch (err) {
+    box.textContent =
+      "[ ERROR ] Could not fetch Geo‑IP data\n" +
+      "Service unreachable or blocked.";
+  }
+}
+
+fetchGeoIP();
+</script>
+
+</body>
+</html>

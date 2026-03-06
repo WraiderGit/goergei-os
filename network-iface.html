@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Interfaces</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+<script src="matrix.js"></script>
+<script src="ui.js"></script>
+
+<nav>
+  <div class="nav-header">
+    <h2>Görgei OS</h2>
+    <div class="tray">
+      <span id="tray-net">NET: ONLINE</span>
+      <span id="tray-cpu">CPU: 12%</span>
+      <span id="tray-time"></span>
+    </div>
+  </div>
+
+  <a href="index.html">🖥 Dashboard</a>
+  <a href="network.html" class="active">🌐 Netzwerk</a>
+  <a href="network-iface.html" class="active">🔧 Interfaces</a>
+  <a href="network-nmap.html">📡 Nmap Scan</a>
+  <a href="network-ping.html">📶 Ping</a>
+  <a href="network-traceroute.html">🛰 Traceroute</a>
+  <a href="network-dns.html">🔎 DNS Lookup</a>
+  <a href="network-netstat.html">📊 Netstat</a>
+</nav>
+
+<main>
+  <div class="terminal-title">Network Interfaces</div>
+  <div class="terminal-panel">
+<pre>
+1: lo: <LOOPBACK> mtu 65536
+    inet 127.0.0.1/8
+    RX: 0 packets  TX: 0 packets
+
+2: eth0: <UP> mtu 1500
+    inet 192.168.0.42/24
+    mac aa:bb:cc:dd:ee:ff
+    RX: 12,442 packets  TX: 9,331 packets
+
+3: wlan0: <DOWN> mtu 1500
+    inet 0.0.0.0
+    mac 11:22:33:44:55:66
+</pre>
+  </div>
+</main>
+
+</body>
+</html>

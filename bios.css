@@ -1,0 +1,58 @@
+body {
+  background: #000080;
+  margin: 0;
+  font-family: "JetBrains Mono", monospace;
+  color: #fff;
+}
+
+.bios-screen {
+  width: 900px;
+  margin: 40px auto;
+  border: 3px solid #fff;
+  padding: 0;
+  background: #000040;
+}
+
+.bios-header {
+  background: #0000a0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  border-bottom: 2px solid #fff;
+}
+
+.bios-tabs {
+  display: flex;
+  background: #000060;
+  border-bottom: 2px solid #fff;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-right: 1px solid #fff;
+}
+
+.tab.active {
+  background: #0000a0;
+  font-weight: bold;
+}
+
+.bios-content {
+  padding: 20px;
+  min-height: 300px;
+}
+
+pre {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.bios-footer {
+  background: #0000a0;
+  padding: 10px;
+  border-top: 2px solid #fff;
+  text-align: center;
+  font-size: 0.9rem;
+}

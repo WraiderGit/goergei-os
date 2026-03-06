@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Scanner</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+  <div class="nav-header">
+    <h2>Görgei OS</h2>
+    <div class="tray">
+      <span id="tray-net">NET: ONLINE</span>
+      <span id="tray-cpu">CPU: 12%</span>
+      <span id="tray-time"></span>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <span class="nav-icon">🖥</span><span>Dashboard</span>
+  </a>
+  <a href="network.html">
+    <span class="nav-icon">🌐</span><span>Netzwerk</span>
+  </a>
+  <a href="scanner.html" class="active">
+    <span class="nav-icon">🔍</span><span>Scanner</span>
+  </a>
+  <a href="logs.html">
+    <span class="nav-icon">📄</span><span>Logs</span>
+  </a>
+  <a href="settings.html">
+    <span class="nav-icon">⚙</span><span>Einstellungen</span>
+  </a>
+</nav>
+
+<main>
+  <div class="terminal-title">Security Scanner</div>
+  <div class="terminal-panel">
+    <pre id="scan-output">
+root@gorgei-os:~$ scan --quick
+[ INFO ] Initialisiere Scanner...
+    </pre>
+  </div>
+
+  <a class="btn" onclick="startScan()">Scan starten</a>
+</main>
+
+<div id="cmd-palette" class="command-palette">
+  <input id="cmd-input" placeholder="Command...">
+  <div class="command-list">
+    <div data-action="open-dashboard">Open Dashboard</div>
+    <div data-action="open-network">Open Network</div>
+    <div data-action="open-scanner">Open Scanner</div>
+    <div data-action="open-logs">Open Logs</div>
+  </div>
+</div>
+
+<script src="matrix.js"></script>
+<script src="ui.js"></script>
+<script>
+function startScan() {
+  const out = document.getElementById("scan-output");
+  out.textContent += "\n[ INFO ] Scanne Netzwerk...\n";
+
+  setTimeout(() => out.textContent += "[ OK   ] Port 22 offen\n", 600);
+  setTimeout(() => out.textContent += "[ OK   ] Port 80 offen\n", 1200);
+  setTimeout(() => out.textContent += "[ WARN ] Port 445 offen (SMB)\n", 1800);
+  setTimeout(() => out.textContent += "[ OK   ] Scan abgeschlossen\n", 2400);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+body {
+  background: #0a0a0a;
+  color: #d8f7e8;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.boot-window {
+  padding: 40px;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}

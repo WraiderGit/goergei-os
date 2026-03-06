@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Secure Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<div class="login-wrapper">
+  <div class="login-window">
+    <div class="login-titlebar">
+      <span>Görgei OS – Secure Login</span>
+      <span class="dots">● ● ●</span>
+    </div>
+
+    <div class="login-body">
+      <div class="login-line">[ AUTH ] Root authentication required</div>
+
+      <label for="user">Benutzername</label>
+      <input id="user" type="text" autocomplete="off">
+
+      <label for="pass">Passwort</label>
+      <input id="pass" type="password">
+
+      <button id="login-btn">Login</button>
+
+      <pre id="status" class="status-log"></pre>
+    </div>
+  </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

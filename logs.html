@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Logs</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+  <div class="nav-header">
+    <h2>Görgei OS</h2>
+    <div class="tray">
+      <span id="tray-net">NET: ONLINE</span>
+      <span id="tray-cpu">CPU: 12%</span>
+      <span id="tray-time"></span>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <span class="nav-icon">🖥</span><span>Dashboard</span>
+  </a>
+  <a href="network.html">
+    <span class="nav-icon">🌐</span><span>Netzwerk</span>
+  </a>
+  <a href="scanner.html">
+    <span class="nav-icon">🔍</span><span>Scanner</span>
+  </a>
+  <a href="logs.html" class="active">
+    <span class="nav-icon">📄</span><span>Logs</span>
+  </a>
+  <a href="settings.html">
+    <span class="nav-icon">⚙</span><span>Einstellungen</span>
+  </a>
+</nav>
+
+<main>
+  <div class="terminal-title">System Logs</div>
+  <div class="terminal-panel">
+    <pre>
+[ 12:01 ] User root logged in
+[ 12:02 ] IDS: No threats detected
+[ 12:05 ] Firewall: Rule update applied
+[ 12:10 ] Network: DNS resolved 8.8.8.8
+[ 12:12 ] SSH: Connection from 192.168.0.10
+    </pre>
+  </div>
+</main>
+
+<div id="cmd-palette" class="command-palette">
+  <input id="cmd-input" placeholder="Command...">
+  <div class="command-list">
+    <div data-action="open-dashboard">Open Dashboard</div>
+    <div data-action="open-network">Open Network</div>
+    <div data-action="open-scanner">Open Scanner</div>
+    <div data-action="open-logs">Open Logs</div>
+  </div>
+</div>
+
+<script src="matrix.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>

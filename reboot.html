@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Rebooting…</title>
+  <style>
+    body {
+      background: #000;
+      color: #d8f7e8;
+      font-family: "JetBrains Mono", monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .box {
+      text-align: center;
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+
+    .blink {
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+Rebooting Görgei OS…
+
+[ OK   ] Stopping services
+[ OK   ] Unmounting volumes
+[ OK   ] Saving session
+[ OK   ] Power cycling
+
+System restarting<span class="blink">█</span>
+</div>
+
+<script>
+  setTimeout(() => {
+    window.location.href = "boot.html";
+  }, 3500);
+</script>
+
+</body>
+</html>

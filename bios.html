@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei BIOS Setup Utility</title>
+  <link rel="stylesheet" href="bios.css">
+</head>
+
+<body>
+
+<div class="bios-screen">
+
+  <div class="bios-header">
+    <span>Görgei BIOS Setup Utility</span>
+    <span>Version 1.9.4</span>
+  </div>
+
+  <div class="bios-tabs">
+    <div class="tab active" data-tab="main">Main</div>
+    <div class="tab" data-tab="security">Security</div>
+    <div class="tab" data-tab="boot">Boot</div>
+    <div class="tab" data-tab="exit">Exit</div>
+  </div>
+
+  <div class="bios-content">
+
+    <!-- MAIN TAB -->
+    <div class="tab-content" id="main" style="display:block;">
+      <pre>
+System Overview
+---------------------------------------
+CPU: Intel i7-9700K
+Memory: 8192 MB DDR4
+Storage: 512GB NVMe SSD
+BIOS Vendor: Görgei Firmware Labs
+BIOS Version: 1.9.4
+Serial Number: GOS-4421-9931
+      </pre>
+    </div>
+
+    <!-- SECURITY TAB -->
+    <div class="tab-content" id="security">
+      <pre>
+Security Settings
+---------------------------------------
+Administrator Password:     [ Not Set ]
+User Password:              [ Not Set ]
+Secure Boot:                [ Enabled ]
+TPM 2.0:                    [ Enabled ]
+Firewall:                   [ Enabled ]
+      </pre>
+    </div>
+
+    <!-- BOOT TAB -->
+    <div class="tab-content" id="boot">
+      <pre>
+Boot Priority
+---------------------------------------
+1. Görgei OS Bootloader
+2. Network Boot (PXE)
+3. USB Device
+4. Disabled
+      </pre>
+    </div>
+
+    <!-- EXIT TAB -->
+    <div class="tab-content" id="exit">
+      <pre>
+Exit Options
+---------------------------------------
+Save Changes and Exit
+Discard Changes and Exit
+Load Setup Defaults
+      </pre>
+    </div>
+
+  </div>
+
+  <div class="bios-footer">
+    ↑↓ Select    ←→ Switch Tab    Enter Select    ESC Exit
+  </div>
+
+</div>
+
+<script src="bios.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Görgei OS – Netzwerk</title>
+  <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+  <div class="nav-header">
+    <h2>Görgei OS</h2>
+    <div class="tray">
+      <span id="tray-net">NET: ONLINE</span>
+      <span id="tray-cpu">CPU: 12%</span>
+      <span id="tray-time"></span>
+    </div>
+  </div>
+
+  <a href="index.html">
+    <span class="nav-icon">🖥</span><span>Dashboard</span>
+  </a>
+  <a href="network.html" class="active">
+    <span class="nav-icon">🌐</span><span>Netzwerk</span>
+  </a>
+  <a href="scanner.html">
+    <span class="nav-icon">🔍</span><span>Scanner</span>
+  </a>
+  <a href="logs.html">
+    <span class="nav-icon">📄</span><span>Logs</span>
+  </a>
+  <a href="settings.html">
+    <span class="nav-icon">⚙</span><span>Einstellungen</span>
+  </a>
+</nav>
+
+<main>
+  <div class="terminal-title">Netzwerkstatus</div>
+  <div class="terminal-panel">
+    <pre>
+[ INFO ] Interface: eth0
+[ INFO ] IP: 192.168.0.42
+[ INFO ] Gateway: 192.168.0.1
+[ INFO ] DNS: 1.1.1.1
+[ OK   ] Verbindung stabil
+    </pre>
+  </div>
+
+  <div class="terminal-title">Aktive Verbindungen</div>
+  <div class="terminal-panel">
+    <pre>
+tcp   192.168.0.42:22   →   192.168.0.10:51432   ESTABLISHED
+tcp   192.168.0.42:443  →   104.26.10.78:443     ESTABLISHED
+udp   192.168.0.42:53   →   1.1.1.1:53           ACTIVE
+    </pre>
+  </div>
+</main>
+
+<div id="cmd-palette" class="command-palette">
+  <input id="cmd-input" placeholder="Command...">
+  <div class="command-list">
+    <div data-action="open-dashboard">Open Dashboard</div>
+    <div data-action="open-network">Open Network</div>
+    <div data-action="open-scanner">Open Scanner</div>
+    <div data-action="open-logs">Open Logs</div>
+  </div>
+</div>
+
+<script src="matrix.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
