@@ -297,20 +297,20 @@ async function fetchGeoIP() {
   try {
     box.textContent = "[ INFO ] Requesting Geo‑IP data...";
 
-    const res = await fetch("/geoip");
+    const res = await fetch("https://ipapi.co/json/");
     const data = await res.json();
 
     box.textContent =
       "[ OK   ] Geo‑IP data retrieved\n\n" +
       "IP Address: " + data.ip + "\n" +
-      "Country:    " + data.country + " (" + data.country_code + ")\n" +
+      "Country:    " + data.country_name + " (" + data.country + ")\n" +
       "Region:     " + data.region + "\n" +
       "City:       " + data.city + "\n" +
       "Latitude:   " + data.latitude + "\n" +
       "Longitude:  " + data.longitude + "\n" +
-      "Timezone:   " + data.timezone.id + "\n" +
-      "ASN:        " + data.connection.asn + "\n" +
-      "ISP:        " + data.connection.isp + "\n";
+      "Timezone:   " + data.timezone + "\n" +
+      "ASN:        " + data.asn + "\n" +
+      "ISP:        " + data.org + "\n";
   } catch (err) {
     box.textContent =
       "[ ERROR ] Could not fetch Geo‑IP data\n" +
@@ -323,3 +323,4 @@ fetchGeoIP();
 
 </body>
 </html>
+
