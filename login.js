@@ -42,7 +42,8 @@ loginBtn.addEventListener("click", () => {
   }, 700);
 
   setTimeout(() => {
-    window.location.href = "main.html";
+    window.location.href = "/goergei-os/main.html";
   }, 1500);
 });
+
 
