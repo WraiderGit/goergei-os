@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-	<script>
-  // Wenn Boot noch nicht gelaufen ist → weiterleiten
-  if (!sessionStorage.getItem("booted")) {
-      sessionStorage.setItem("booted", "true");
-      window.location.href = "boot.html";
-  }
-</script>
   <meta charset="UTF-8">
   <title>Görgei OS – Dashboard</title>
   <link rel="stylesheet" href="global.css">
@@ -304,7 +297,7 @@ async function fetchGeoIP() {
   try {
     box.textContent = "[ INFO ] Requesting Geo‑IP data...";
 
-    const res = await fetch("https://ipwho.is/");
+    const res = await fetch("/geoip");
     const data = await res.json();
 
     box.textContent =
@@ -330,5 +323,3 @@ fetchGeoIP();
 
 </body>
 </html>
-
-
