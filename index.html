@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+	<script>
+  // Wenn Boot noch nicht gelaufen ist → weiterleiten
+  if (!sessionStorage.getItem("booted")) {
+      sessionStorage.setItem("booted", "true");
+      window.location.href = "boot.html";
+  }
+</script>
   <meta charset="UTF-8">
   <title>Görgei OS – Dashboard</title>
   <link rel="stylesheet" href="global.css">
@@ -323,4 +330,5 @@ fetchGeoIP();
 
 </body>
 </html>
+
 
