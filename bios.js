@@ -32,7 +32,8 @@ document.addEventListener("keydown", e => {
 
   if (e.key === "Enter") {
     if (currentTab === 3) {
-      window.location.href = "boot.html";
+      window.location.href = "index.html";
     }
   }
 });
+
