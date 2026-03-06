@@ -27,7 +27,7 @@ document.addEventListener("keydown", e => {
   }
 
   if (e.key === "Escape") {
-    window.location.href = "boot.html";
+    window.location.href = "index.html";
   }
 
   if (e.key === "Enter") {
@@ -36,4 +36,5 @@ document.addEventListener("keydown", e => {
     }
   }
 });
+
 
