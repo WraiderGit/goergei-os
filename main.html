@@ -297,7 +297,7 @@ async function fetchGeoIP() {
   try {
     box.textContent = "[ INFO ] Requesting Geo‑IP data...";
 
-    const res = await fetch("https://ipapi.co/json/");
+    const res = await fetch("https://ipwho.is/");
     const data = await res.json();
 
     box.textContent =
@@ -323,4 +323,5 @@ fetchGeoIP();
 
 </body>
 </html>
+
 
