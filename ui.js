@@ -39,3 +39,14 @@ document.addEventListener("click", e => {
   if (action === "open-scanner") window.location.href = "scanner.html";
   if (action === "open-logs") window.location.href = "logs.html";
 });
+// Burger Menu
+const burger = document.getElementById("burger-btn");
+const nav = document.querySelector("nav");
+
+if (burger && nav) {
+  burger.addEventListener("click", () => {
+    burger.classList.toggle("active");
+    nav.classList.toggle("open");
+  });
+}
+
