@@ -250,64 +250,88 @@ main {
   text-align: center;
 }
 /* ============================================
-   MOBILE OPTIMIERUNG – GÖRGEI OS
+   GÖRGEI OS – MOBILE BURGER MENU FIX
    ============================================ */
 @media (max-width: 768px) {
 
-  /* Sidebar wird zu Topbar */
-  nav {
-    width: 100%;
-    height: auto;
+  /* --- BURGER BUTTON --- */
+  .burger-btn {
     position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 32px;
+    height: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 300;
+  }
+
+  .burger-btn span {
+    display: block;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  .burger-btn.active span:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+  }
+  .burger-btn.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger-btn.active span:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+  }
+
+  /* --- SIDEBAR VERSTECKEN --- */
+  nav {
+    position: fixed !important;
     top: 0;
     left: 0;
-    padding: 12px 15px;
-    border-right: none;
-    border-bottom: 1px solid var(--panel-border);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-    overflow-x: auto;
-    z-index: 20;
+    width: 220px !important;
+    height: 100vh !important;
+    background: #0d0d0d;
+    padding-top: 70px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 250;
   }
 
-  .nav-header {
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 0;
+  /* --- SIDEBAR SICHTBAR --- */
+  nav.open {
+    transform: translateX(0);
   }
 
+  /* --- NAV LINKS --- */
   nav a {
-    margin-bottom: 0;
-    padding: 8px 10px;
-    white-space: nowrap;
+    padding: 14px 12px;
+    font-size: 1rem;
+    border-left: none !important;
   }
 
   nav a.active {
-    border-left: none;
     border-bottom: 3px solid var(--accent);
-    padding-left: 10px;
   }
 
-  /* Hauptbereich rutscht nach unten */
+  /* --- MAIN CONTENT --- */
   main {
-    margin-left: 0;
-    margin-top: 90px;
+    margin-left: 0 !important;
+    margin-top: 80px;
     padding: 20px;
   }
 
-  /* Widgets untereinander statt nebeneinander */
+  /* --- WIDGETS --- */
   .widgets {
     flex-direction: column;
     gap: 15px;
   }
 
-  /* Terminal Panels besser lesbar */
+  /* --- TERMINAL --- */
   .terminal-panel {
     font-size: 0.85rem;
-    padding: 15px;
     overflow-x: auto;
   }
 
@@ -315,154 +339,4 @@ main {
     white-space: pre-wrap;
     word-break: break-word;
   }
-
-  /* Command Palette für Handy */
-  .command-palette {
-    width: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 15%;
-  }
-
-  /* Tray kleiner */
-  .tray {
-    font-size: 0.7rem;
-  }
 }
-/* ============================================
-   BURGER MENU – MOBILE
-   ============================================ */
-@media (max-width: 768px) {
-
-  /* Burger Button */
-  .burger-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    width: 32px;
-    height: 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 200;
-  }
-
-  .burger-btn span {
-    display: block;
-    height: 4px;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: 0.3s;
-  }
-
-  /* Animation: X */
-  .burger-btn.active span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-  }
-  .burger-btn.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .burger-btn.active span:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-  }
-
-  /* Navigation verstecken */
-  nav {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    width: 220px;
-    height: 100vh;
-    padding-top: 70px;
-  }
-
-  /* Navigation sichtbar */
-  nav.open {
-    transform: translateX(0);
-  }
-
-  /* Hauptbereich */
-  main {
-    margin-left: 0;
-    margin-top: 80px;
-    padding: 20px;
-  }
-}
-/* ============================================
-   MOBILE BURGER MENU FIX
-   ============================================ */
-@media (max-width: 768px) {
-
-  /* Sidebar standardmäßig verstecken */
-  nav {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    width: 220px;
-    height: 100vh;
-    padding-top: 70px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #0d0d0d;
-    z-index: 150;
-  }
-
-  /* Sidebar sichtbar, wenn Burger aktiv */
-  nav.open {
-    transform: translateX(0);
-  }
-
-  /* Hauptinhalt rutscht nach oben */
-  main {
-    margin-left: 0;
-    margin-top: 80px;
-    padding: 20px;
-  }
-
-  /* Burger Button sichtbar */
-  .burger-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    width: 32px;
-    height: 26px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    z-index: 200;
-  }
-
-  .burger-btn span {
-    display: block;
-    height: 4px;
-    background: var(--accent);
-    border-radius: 2px;
-    transition: 0.3s;
-  }
-
-  /* Animation: X */
-  .burger-btn.active span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-  }
-  .burger-btn.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .burger-btn.active span:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-  }
-
-  /* Navigation Links */
-  nav a {
-    padding: 12px 10px;
-    font-size: 1rem;
-  }
-
-  nav a.active {
-    border-left: none;
-    border-bottom: 3px solid var(--accent);
-  }
-}
-
-
-
