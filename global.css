@@ -249,3 +249,84 @@ main {
 .shutdown-box {
   text-align: center;
 }
+/* ============================================
+   MOBILE OPTIMIERUNG – GÖRGEI OS
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Sidebar wird zu Topbar */
+  nav {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 12px 15px;
+    border-right: none;
+    border-bottom: 1px solid var(--panel-border);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+    z-index: 20;
+  }
+
+  .nav-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;
+  }
+
+  nav a {
+    margin-bottom: 0;
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  nav a.active {
+    border-left: none;
+    border-bottom: 3px solid var(--accent);
+    padding-left: 10px;
+  }
+
+  /* Hauptbereich rutscht nach unten */
+  main {
+    margin-left: 0;
+    margin-top: 90px;
+    padding: 20px;
+  }
+
+  /* Widgets untereinander statt nebeneinander */
+  .widgets {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Terminal Panels besser lesbar */
+  .terminal-panel {
+    font-size: 0.85rem;
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  /* Command Palette für Handy */
+  .command-palette {
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 15%;
+  }
+
+  /* Tray kleiner */
+  .tray {
+    font-size: 0.7rem;
+  }
+}
+
