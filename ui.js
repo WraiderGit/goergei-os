@@ -34,7 +34,7 @@ document.addEventListener("click", e => {
   const item = e.target.closest(".command-list div");
   if (!item) return;
   const action = item.dataset.action;
-  if (action === "open-dashboard") window.location.href = "index.html";
+  if (action === "open-dashboard") window.location.href = "main.html";
   if (action === "open-network") window.location.href = "network.html";
   if (action === "open-scanner") window.location.href = "scanner.html";
   if (action === "open-logs") window.location.href = "logs.html";
@@ -49,4 +49,5 @@ if (burger && nav) {
     nav.classList.toggle("open");
   });
 }
+
 
