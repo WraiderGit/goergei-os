@@ -1,22 +1,83 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Görgei OS – Booting…</title>
-  <link rel="stylesheet" href="boot.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daniel Görgei — Network Engineer &amp; IT-Systemadministrator</title>
+<meta name="description" content="Daniel Görgei, Network Engineer und IT-Systemadministrator aus Kärnten, Österreich.">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<div class="boot-window">
-  <pre id="boot-text"></pre>
-</div>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">Daniel Görgei</a>
+    <nav>
+      <a href="index.html" aria-current="page">Start</a>
+      <a href="about.html">Über mich</a>
+    </nav>
+  </div>
+</header>
 
-<script src="boot.js"></script>
-<script>
-  // Nach der Boot-Sequenz zur Hauptseite
-  setTimeout(() => {
-      window.location.href = "login.html";
-</script>
+<main>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <h1>Sicherheit ist bei mir keine Nebensache.</h1>
+
+        <div class="statement">
+          <p>
+            Cybersecurity nehme ich sehr ernst — beruflich und privat. Für mich
+            bedeutet das: sauber aufgebaute Netzwerke, durchdachte Backups und
+            Systeme, bei denen ich genau weiß, was in ihnen passiert.
+          </p>
+        </div>
+
+        <a class="button" href="about.html">Über mich</a>
+      </div>
+
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V5l8-3z"/></svg>
+          <h3>Netzwerk &amp; Firewall</h3>
+          <p>Fortinet, Cisco, Hirschmann, segmentierte VLAN-Architekturen.</p>
+        </div>
+        <div class="highlight-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><circle cx="7" cy="7" r=".6" fill="currentColor"/><circle cx="7" cy="17" r=".6" fill="currentColor"/></svg>
+          <h3>Backup &amp; Recovery</h3>
+          <p>Veeam-basierte Architekturen, Off-Site-Kopien.</p>
+        </div>
+        <div class="highlight-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 8h5v5"/></svg>
+          <h3>Monitoring</h3>
+          <p>CheckMK, Linux-Server, durchgängige Beobachtbarkeit.</p>
+        </div>
+        <div class="highlight-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+          <h3>Zertifiziert</h3>
+          <p>CCNA und laufende Weiterbildung, siehe Über mich.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-row">
+      <p>
+        © 2026 Daniel Görgei ·
+        <a href="mailto:daniel@goergei.com">daniel@goergei.com</a> ·
+        <a href="https://www.linkedin.com/in/daniel-görgei-922839432" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+      <script src="https://tryhackme.com/badge/t/c8c4ce13ef87f3d7688b3ef2329489d8301231961a1b3e736e1d55885176824a07340ffb259c221a662861da484382e5?theme=dark"></script>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

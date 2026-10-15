@@ -1,0 +1,350 @@
+/* ============================================================
+   Daniel Görgei — goergei.com
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #0b0d11;
+  --bg-panel: #12151a;
+  --bg-alt: #0e1116;
+  --border: #242a32;
+  --text: #edf0f2;
+  --text-dim: #99a2a9;
+  --accent: #e8495c;
+  --accent-ink: #ffffff;
+
+  --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 700px 420px at 12% -8%, rgba(232, 73, 92, 0.16), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cg fill='none' stroke='%23e8495c' stroke-width='1' opacity='0.08'%3E%3Cpath d='M12 12H70V48H128'/%3E%3Cpath d='M24 84V128H84'/%3E%3Cpath d='M104 24V64H64V104'/%3E%3C/g%3E%3Cg fill='%23e8495c' opacity='0.16'%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3Ccircle cx='128' cy='48' r='2'/%3E%3Ccircle cx='84' cy='128' r='2'/%3E%3Ccircle cx='104' cy='24' r='2'/%3E%3Ccircle cx='64' cy='104' r='2'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 140px 140px;
+  background-attachment: fixed, fixed;
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  color: var(--text);
+}
+
+h1 { font-size: clamp(2.1rem, 1.3rem + 3.2vw, 3.4rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.02rem; margin-bottom: 0.3em; }
+
+p { margin: 0 0 1em; color: var(--text); }
+p:last-child { margin-bottom: 0; }
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.brand:hover { text-decoration: none; color: var(--accent); }
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-header nav a {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.site-header nav a:hover { color: var(--text); text-decoration: none; }
+
+.site-header nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+/* ---------- Hero (home) ---------- */
+
+.hero {
+  padding: 88px 0 100px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.hero-copy .eyebrow {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin: 0 0 16px;
+}
+
+.hero-copy .statement {
+  border-left: 3px solid var(--accent);
+  padding-left: 18px;
+  margin: 28px 0 32px;
+  max-width: 46ch;
+}
+
+.hero-copy .statement p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.profile-photo {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border);
+}
+
+.hero-person {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.hero-person .name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.hero-person .role {
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+  padding: 13px 26px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+}
+.button:hover {
+  text-decoration: none;
+  background: transparent;
+  color: var(--accent);
+}
+
+/* ---------- Highlight cards (home, right column) ---------- */
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.highlight-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 22px;
+}
+
+.highlight-card svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--accent);
+  margin-bottom: 14px;
+}
+
+.highlight-card h3 { margin-bottom: 6px; }
+.highlight-card p { color: var(--text-dim); font-size: 0.92rem; }
+
+/* ---------- Facts list (about) ---------- */
+
+.hero-compact { padding: 64px 0 44px; }
+
+.facts {
+  margin: 28px 0 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  max-width: 640px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.facts dt {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+.facts dd {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ---------- Sections ---------- */
+
+.section {
+  padding: 56px 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* ---------- Skills (about) ---------- */
+
+.skill-grid {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-grid li {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  background: var(--bg-panel);
+}
+
+/* ---------- Certifications (about) ---------- */
+
+.cert-list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.cert-list li {
+  border-left: 2px solid var(--accent);
+  padding: 4px 0 22px 20px;
+  margin-bottom: 4px;
+}
+
+.cert-list li:last-child { padding-bottom: 0; }
+
+.cert-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cert-head h3 { margin-bottom: 0; }
+
+.cert-date {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.cert-issuer {
+  color: var(--text-dim);
+  margin: 2px 0 0;
+}
+
+.cert-id {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin: 4px 0 0;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 26px 0;
+}
+
+.site-footer p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.site-footer a { color: var(--text-dim); text-decoration: underline; }
+.site-footer a:hover { color: var(--accent); }
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Motion / accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 760px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero { padding: 56px 0 64px; }
+}
+
+@media (max-width: 480px) {
+  .highlight-grid { grid-template-columns: 1fr; }
+}
