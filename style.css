@@ -326,13 +326,15 @@ p:last-child { margin-bottom: 0; }
 .site-footer a { color: var(--text-dim); text-decoration: underline; }
 .site-footer a:hover { color: var(--accent); }
 
-.footer-row {
+.about-top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
 }
+
+.about-top .eyebrow { margin: 0; }
 
 /* ---------- Motion / accessibility ---------- */
 
