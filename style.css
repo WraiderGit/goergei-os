@@ -151,6 +151,40 @@ p:last-child { margin-bottom: 0; }
   border: 2px solid var(--border);
 }
 
+.photo-trigger {
+  display: inline-block;
+  cursor: zoom-in;
+}
+
+.lightbox-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 8, 0.88);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  cursor: zoom-out;
+}
+
+.lightbox-toggle:checked ~ .lightbox-overlay {
+  display: flex;
+}
+
+.lightbox-img {
+  width: min(420px, 80vw);
+  height: min(420px, 80vw);
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+
 .hero-person {
   display: flex;
   align-items: center;
@@ -325,16 +359,6 @@ p:last-child { margin-bottom: 0; }
 
 .site-footer a { color: var(--text-dim); text-decoration: underline; }
 .site-footer a:hover { color: var(--accent); }
-
-.about-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.about-top .eyebrow { margin: 0; }
 
 /* ---------- Motion / accessibility ---------- */
 

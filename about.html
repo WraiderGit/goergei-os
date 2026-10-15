@@ -23,16 +23,19 @@
 
   <section class="hero hero-compact">
     <div class="wrap">
-      <div class="about-top">
-        <p class="eyebrow">Über mich</p>
-        <script src="https://tryhackme.com/badge/t/c8c4ce13ef87f3d7688b3ef2329489d8301231961a1b3e736e1d55885176824a07340ffb259c221a662861da484382e5?theme=dark"></script>
-      </div>
+      <p class="eyebrow">Über mich</p>
       <div class="hero-person">
-        <img src="profile.jpg" alt="Daniel Görgei" class="profile-photo">
+        <input type="checkbox" id="photo-lightbox" class="lightbox-toggle">
+        <label for="photo-lightbox" class="photo-trigger">
+          <img src="profile.jpg" alt="Daniel Görgei" class="profile-photo">
+        </label>
         <div>
           <div class="name">Daniel Görgei</div>
           <div class="role">Network Engineer · IT-Systemadministrator</div>
         </div>
+        <label for="photo-lightbox" class="lightbox-overlay" aria-label="Schließen">
+          <img src="profile.jpg" alt="Daniel Görgei" class="lightbox-img">
+        </label>
       </div>
       <dl class="facts">
         <div>
@@ -121,7 +124,8 @@
     <p>
       © 2026 Daniel Görgei ·
       <a href="mailto:daniel@goergei.com">daniel@goergei.com</a> ·
-      <a href="https://www.linkedin.com/in/daniel-görgei-922839432" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/daniel-görgei-922839432" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://tryhackme.com/p/Wraider" target="_blank" rel="noopener">TryHackMe</a>
     </p>
   </div>
 </footer>
