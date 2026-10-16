@@ -10,8 +10,34 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daniel Görgei",
+  "jobTitle": "Network Engineer, IT-Systemadministrator",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "helpIT & more GmbH"
+  },
+  "url": "https://goergei.com",
+  "image": "https://goergei.com/profile.jpg",
+  "birthDate": "1992-06-11",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Kärnten",
+    "addressCountry": "AT"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/daniel-görgei-922839432",
+    "https://tryhackme.com/p/Wraider"
+  ]
+}
+</script>
 </head>
 <body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
 
 <header class="site-header">
   <div class="wrap">
@@ -42,6 +68,10 @@
         </label>
       </div>
       <dl class="facts">
+        <div>
+          <dt>Arbeitgeber</dt>
+          <dd>helpIT &amp; more GmbH</dd>
+        </div>
         <div>
           <dt>Geburtsdatum</dt>
           <dd>11. Juni 1992</dd>
@@ -131,8 +161,17 @@
       <a href="https://www.linkedin.com/in/daniel-görgei-922839432" target="_blank" rel="noopener">LinkedIn</a> ·
       <a href="https://tryhackme.com/p/Wraider" target="_blank" rel="noopener">TryHackMe</a>
     </p>
+    <p class="updated">Zuletzt aktualisiert: 16. Oktober 2026</p>
   </div>
 </footer>
+
+<script>
+  window.addEventListener('scroll', function () {
+    var h = document.documentElement;
+    var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    document.getElementById('scroll-progress').style.width = scrolled + '%';
+  });
+</script>
 
 </body>
 </html>

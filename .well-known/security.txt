@@ -1,0 +1,4 @@
+Contact: mailto:daniel@goergei.com
+Expires: 2027-10-16T00:00:00.000Z
+Preferred-Languages: de, en
+Canonical: https://goergei.com/.well-known/security.txt

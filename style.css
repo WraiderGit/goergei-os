@@ -69,6 +69,18 @@ h3 { font-size: 1.02rem; margin-bottom: 0.3em; }
 p { margin: 0 0 1em; color: var(--text); }
 p:last-child { margin-bottom: 0; }
 
+/* ---------- Scroll progress ---------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 200;
+}
+
 /* ---------- Header ---------- */
 
 .site-header {
@@ -355,6 +367,13 @@ p:last-child { margin-bottom: 0; }
   color: var(--text-dim);
   font-size: 0.85rem;
   margin: 0;
+}
+
+.site-footer .updated {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  margin-top: 6px;
+  color: #6b7378;
 }
 
 .site-footer a { color: var(--text-dim); text-decoration: underline; }
