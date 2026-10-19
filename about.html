@@ -174,7 +174,7 @@
       <a href="impressum.html">Impressum</a> ·
       <a href="datenschutz.html">Datenschutz</a>
     </p>
-    <p class="updated">Zuletzt aktualisiert: 16. Oktober 2026</p>
+    <p class="updated">Zuletzt aktualisiert: <span id="last-updated"></span></p>
   </div>
 </footer>
 
@@ -184,6 +184,14 @@
     var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
     document.getElementById('scroll-progress').style.width = scrolled + '%';
   });
+</script>
+<script>
+  (function () {
+    var el = document.getElementById('last-updated');
+    if (!el) return;
+    var d = new Date(document.lastModified);
+    el.textContent = d.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+  })();
 </script>
 
 </body>
